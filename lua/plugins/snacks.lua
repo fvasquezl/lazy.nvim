@@ -1,20 +1,21 @@
 -- lazy.nvim
 return {
-  "folke/snacks.nvim",
-  ---@type snacks.Config
-  opts = {
-    explorer = {
-      -- your explorer configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-    picker = {
-      sources = {
-        explorer = {
-          -- your explorer picker configuration comes here
-          -- or leave it empty to use the default settings
-        }
-      }
-    }
-  }
+	"folke/snacks.nvim",
+	---@type snacks.Config
+	priority=1000,
+	lazy=false,
+	opts = {
+		explorer = {enable =true},
+		picker = {enable = true}, 
+	},
+
+	keys = {
+		-- Top Pickers & Explorer
+		{ "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+		{ "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+		{ "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
+		{ "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+		{ "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+		{ "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+	},
 }
