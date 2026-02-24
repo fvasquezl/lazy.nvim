@@ -6,7 +6,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "intelephense", "laravel_ls" },
+            ensure_installed = { "intelephense", "laravel_ls" , "tailwindcss"},
             automatic_installation = true,
         })
     end,

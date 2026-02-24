@@ -20,6 +20,13 @@ return {
 				buffer = {
 					min_keyword_length = 1,
 				},
+				snippets = {
+					opts = {
+						extended_filetypes = {
+							blade = { 'html', 'php' },
+						},
+					},
+				},
 			},
 		},
 		completion = {

@@ -5,8 +5,20 @@ return {
 			filetypes = { 'php', 'blade' },
 		})
 
+		vim.lsp.config('tailwindcss', {
+			filetypes = { 'html', 'blade', 'php', 'javascript', 'css' },
+			settings = {
+				tailwindCSS = {
+					includeLanguages = {
+						blade = 'html',
+					},
+				},
+			},
+		})
+
 		vim.lsp.enable('laravel_ls')
 		vim.lsp.enable('intelephense')
+		vim.lsp.enable('tailwindcss')
 
 		vim.api.nvim_create_autocmd('LspAttach', {
 			callback = function(ev)
