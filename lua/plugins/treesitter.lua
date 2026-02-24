@@ -1,26 +1,30 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
 	lazy = false,
-	build = ':TSUpdate',
-	opts = {
-		ensure_installed = { "php", "css", "html", "javascript", "lua", "blade" },
-	},
-	config = function(_, opts)
-		vim.api.nvim_create_autocmd('User', {
-			pattern = 'TSUpdate',
-			callback = function()
-				require('nvim-treesitter.parsers').blade = {
-					install_info = {
-						url = 'https://github.com/EmranMR/tree-sitter-blade',
-						files = { 'src/parser.c' },
-						branch = 'main',
-					},
-				}
-				vim.treesitter.language.register('blade', { 'blade' })
-			end,
+	build = ':TSInstall php css html javascript lua blade',
+	config = function()
+		-- Register custom blade parser (not in nvim-treesitter by default)
+		local parsers = require('nvim-treesitter.parsers')
+		parsers.blade = {
+			install_info = {
+				url = 'https://github.com/EmranMR/tree-sitter-blade',
+				branch = 'main',
+			},
+			filetype = 'blade',
+		}
+
+		-- Detect .blade.php files as blade filetype
+		vim.filetype.add({
+			pattern = {
+				['.*%.blade%.php'] = 'blade',
+			},
 		})
 
-		require('nvim-treesitter').setup(opts)
+		-- Tell treesitter that filetype "blade" uses the blade parser
+		vim.treesitter.language.register('blade', 'blade')
+
+		require('nvim-treesitter').setup()
+
 		vim.api.nvim_create_autocmd('FileType', {
 			callback = function()
 				pcall(vim.treesitter.start)

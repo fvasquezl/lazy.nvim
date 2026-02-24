@@ -1,6 +1,10 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
+		vim.lsp.config('intelephense', {
+			filetypes = { 'php', 'blade' },
+		})
+
 		vim.lsp.enable('laravel_ls')
 		vim.lsp.enable('intelephense')
 
