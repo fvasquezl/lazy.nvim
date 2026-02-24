@@ -41,19 +41,22 @@ Al abrir Neovim, lazy.nvim instalará todos los plugins automáticamente.
 | [mason-org/mason.nvim](https://github.com/mason-org/mason.nvim) | Instalador de servidores LSP |
 | [mason-org/mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim) | Auto-instalación de `intelephense` y `laravel_ls` |
 
-**Servidores activos:** `intelephense` (PHP + Blade), `laravel_ls` (PHP + Blade)
+**Servidores activos:** `intelephense` (PHP + Blade), `laravel_ls` (PHP + Blade), `tailwindcss` (HTML + Blade + PHP + JS + CSS)
 
 ### Autocompletado
 | Plugin | Descripción |
 |--------|-------------|
 | [saghen/blink.cmp](https://github.com/saghen/blink.cmp) | Autocompletado con fuentes LSP, path, snippets y buffer |
-| [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) | Colección de snippets |
+| [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets) | Colección de snippets (HTML y PHP extendidos en blade) |
 | [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Cierre automático de `{`, `(`, `[`, `"`, `'` |
+| [mattn/emmet-vim](https://github.com/mattn/emmet-vim) | Expansión de abreviaciones HTML/CSS (`<C-e>,`) |
 
-### Sintaxis
+### Sintaxis y colores
 | Plugin | Descripción |
 |--------|-------------|
 | [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Resaltado de sintaxis para PHP, Blade, HTML, CSS, JS, Lua |
+| [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) | Guías de indentación con scope highlight (catppuccin) |
+| [NvChad/nvim-colorizer.lua](https://github.com/NvChad/nvim-colorizer.lua) | Preview de colores inline — CSS, HEX y clases Tailwind |
 
 **Parsers instalados:** `php`, `html`, `css`, `javascript`, `lua`, `blade`
 
@@ -89,6 +92,11 @@ Al abrir Neovim, lazy.nvim instalará todos los plugins automáticamente.
 | `<CR>` | Aceptar sugerencia |
 | `<C-Space>` | Abrir menú manualmente |
 | `<C-e>` | Cerrar menú |
+
+### Emmet
+| Tecla | Acción |
+|-------|--------|
+| `<C-e>,` | Expandir abreviación (ej: `div.container>p`) |
 
 ### Dashboard
 | Tecla | Acción |
